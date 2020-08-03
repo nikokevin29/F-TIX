@@ -40,8 +40,13 @@ class SplashPage extends StatelessWidget {
                       style: whiteTextFont.copyWith(fontSize: 16),
                     ),
                     color: mainColor,
-                    shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(8)),
-                    onPressed: () {}),
+                    shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(8)),
+                    onPressed: () {
+                      context
+                          .bloc<PageBloc>()
+                          .add(GoToRegistrationPage(RegistrationData()));
+                    }),
               ),
               Row(
                 mainAxisAlignment: MainAxisAlignment.center,
