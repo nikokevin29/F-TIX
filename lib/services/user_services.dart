@@ -1,8 +1,7 @@
 part of 'services.dart';
 
 class UserServices {
-  static CollectionReference _userCollection =
-      Firestore.instance.collection('users');
+  static CollectionReference _userCollection = Firestore.instance.collection('users');
 
   static Future<void> updateUser(User user) async {
     // String genres = "";
@@ -27,9 +26,7 @@ class UserServices {
     return User(id, snapshot.data['email'],
         balance: snapshot.data['balance'],
         profilePicture: snapshot.data['profilePicture'],
-        selectedGenres: (snapshot.data['selectedGenres'] as List)
-            .map((e) => e.toString())
-            .toList(),
+        selectedGenres: (snapshot.data['selectedGenres'] as List).map((e) => e.toString()).toList(),
         selectedLanguage: snapshot.data['selectedLanguage'],
         name: snapshot.data['name']);
   }
