@@ -1,3 +1,4 @@
+import 'package:flutix_app/bloc/movie_bloc.dart';
 import 'package:flutix_app/services/services.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -25,12 +26,13 @@ class MyApp extends StatelessWidget {
           ),
           BlocProvider(
             create: (context) => ThemeBloc(),
-          )
+          ),
+          BlocProvider(create: (_) => MovieBloc()..add(FetchMovie())),
         ],
-        child: BlocBuilder<ThemeBloc,ThemeState>(
+        child: BlocBuilder<ThemeBloc, ThemeState>(
           builder: (context, themeState) => MaterialApp(
             themeMode: ThemeMode.system,
-            theme: themeState.themeData ,
+            theme: themeState.themeData,
             // ThemeData(
             //   brightness: Brightness.light,
             //   accentColor: mainColor,
