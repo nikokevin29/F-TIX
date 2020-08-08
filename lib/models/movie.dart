@@ -22,7 +22,7 @@ class Movie extends Equatable {
       title: json['title'],
       voteAverage: (json['vote_average']as num).toDouble(),
       overview: json['overview'],
-      posterPath: json['poster_pathj'],
+      posterPath: json['poster_path'],
       backdropPath: json['backdrop_path']);
 
   @override

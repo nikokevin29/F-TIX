@@ -1,7 +1,7 @@
 part of 'pages.dart';
 
 class PreferencePage extends StatefulWidget {
-  final List<String> genres = ["Horror", "Musical", "Action", "Comedy", "Anime", "Drama"];
+  final List<String> genres = ["Horror", "Musical", "Action", "War", "Crime", "Drama"];
   final List<String> languages = ["Bahasa", "English", "Japanese", "Javanese"];
   final RegistrationData registrationData;
   PreferencePage(this.registrationData);
