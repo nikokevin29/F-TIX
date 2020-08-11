@@ -129,10 +129,8 @@ class MoviePage extends StatelessWidget {
                 margin: EdgeInsets.symmetric(horizontal: defaultMargin),
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  children: List.generate(
-                      userState.user.selectedGenres.length,
-                      (index) =>
-                          BrowseButton(userState.user.selectedGenres[index])),
+                  children: List.generate(userState.user.selectedGenres.length,
+                      (index) => BrowseButton(userState.user.selectedGenres[index])),
                 ),
               );
             } else {

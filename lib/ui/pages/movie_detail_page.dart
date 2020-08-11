@@ -57,7 +57,7 @@ class MovieDetailPage extends StatelessWidget {
                             Container(
                               margin: EdgeInsets.only(
                                 left: defaultMargin,
-                                top: 10,
+                                top: 20,
                               ),
                               decoration: BoxDecoration(
                                   borderRadius: BorderRadius.circular(5),
@@ -153,7 +153,9 @@ class MovieDetailPage extends StatelessWidget {
                                   }
                                 },
                               ),
-                              SizedBox(height: 10,),
+                              SizedBox(
+                                height: 10,
+                              ),
                               Align(
                                 alignment: Alignment.topLeft,
                                 child: Container(
@@ -172,6 +174,19 @@ class MovieDetailPage extends StatelessWidget {
                                   textAlign: TextAlign.justify,
                                 ),
                               ),
+                              RaisedButton(
+                                  shape: RoundedRectangleBorder(
+                                      borderRadius: BorderRadius.circular(8)),
+                                  color: mainColor,
+                                  child: Text(
+                                    "Continue to Book",
+                                    style: whiteTextFont.copyWith(fontSize: 16),
+                                  ),
+                                  onPressed: () {
+                                    context
+                                        .bloc<PageBloc>()
+                                        .add(GoToSelectScedulePage(movieDetail));
+                                  }),
                             ],
                           ),
                         ),
