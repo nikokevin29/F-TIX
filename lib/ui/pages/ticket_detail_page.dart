@@ -364,7 +364,15 @@ class TicketDetailPage extends StatelessWidget {
                                                 fontWeight: FontWeight.w600,
                                                 color: Colors.black)),
                                       ],
-                                    )
+                                    ),
+                                    SizedBox(
+                                      height: 6,
+                                    ),
+                                    QrImage(
+                                        backgroundColor: Colors.white,
+                                        foregroundColor: Colors.black,
+                                        size: 150,
+                                        data: ticket.bookingCode),
                                   ],
                                 ),
                               ),

@@ -50,55 +50,55 @@ class _TicketPageState extends State<TicketPage> {
                     child: Text("My Tickets", style: whiteTextFont.copyWith(fontSize: 20))),
                 Row(
                   children: [
-                    Column(
-                      children: [
-                        GestureDetector(
-                          onTap: () {
-                            setState(() {
-                              isExpiredTickets = !isExpiredTickets;
-                            });
-                          },
-                          child: Text(
+                    GestureDetector(
+                      onTap: () {
+                        setState(() {
+                          isExpiredTickets = !isExpiredTickets;
+                        });
+                      },
+                      child: Column(
+                        children: [
+                          Text(
                             "Newest",
                             style: whiteTextFont.copyWith(
                                 fontSize: 16,
                                 color: !isExpiredTickets ? Colors.white : Color(0xFF6F678E)),
                           ),
-                        ),
-                        SizedBox(
-                          height: 15,
-                        ),
-                        Container(
-                          height: 4,
-                          width: MediaQuery.of(context).size.width * 0.5,
-                          color: !isExpiredTickets ? accentColor2 : Colors.transparent,
-                        )
-                      ],
+                          SizedBox(
+                            height: 15,
+                          ),
+                          Container(
+                            height: 4,
+                            width: MediaQuery.of(context).size.width * 0.5,
+                            color: !isExpiredTickets ? accentColor2 : Colors.transparent,
+                          )
+                        ],
+                      ),
                     ),
-                    Column(
-                      children: [
-                        GestureDetector(
-                          onTap: () {
-                            setState(() {
-                              isExpiredTickets = !isExpiredTickets;
-                            });
-                          },
-                          child: Text(
+                    GestureDetector(
+                      onTap: () {
+                        setState(() {
+                          isExpiredTickets = !isExpiredTickets;
+                        });
+                      },
+                      child: Column(
+                        children: [
+                          Text(
                             "Oldest",
                             style: whiteTextFont.copyWith(
                                 fontSize: 16,
                                 color: isExpiredTickets ? Colors.white : Color(0xFF6F678E)),
                           ),
-                        ),
-                        SizedBox(
-                          height: 15,
-                        ),
-                        Container(
-                          height: 4,
-                          width: MediaQuery.of(context).size.width * 0.5,
-                          color: isExpiredTickets ? accentColor2 : Colors.transparent,
-                        )
-                      ],
+                          SizedBox(
+                            height: 15,
+                          ),
+                          Container(
+                            height: 4,
+                            width: MediaQuery.of(context).size.width * 0.5,
+                            color: isExpiredTickets ? accentColor2 : Colors.transparent,
+                          )
+                        ],
+                      ),
                     ),
                   ],
                 )
