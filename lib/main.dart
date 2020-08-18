@@ -17,36 +17,20 @@ class MyApp extends StatelessWidget {
     return StreamProvider.value(
       value: AuthServices.userStream,
       child: MultiBlocProvider(
-        providers: [
-          BlocProvider(
-            create: (_) => PageBloc(),
-          ),
-          BlocProvider(
-            create: (_) => UserBloc(),
-          ),
-          BlocProvider(
-            create: (context) => ThemeBloc(),
-          ),
-          BlocProvider(create: (_) => MovieBloc()..add(FetchMovie())),
-          BlocProvider(
-            create: (_) => TicketBloc(),
-          )
-        ],
-        child: BlocBuilder<ThemeBloc, ThemeState>(
-          builder: (context, themeState) => MaterialApp(
-            themeMode: ThemeMode.system,
-            theme: themeState.themeData,
-            // ThemeData(
-            //   brightness: Brightness.light,
-            //   accentColor: mainColor,
-            // ),
-            // darkTheme: ThemeData(
-            //     accentColor: Colors.amber[700], brightness: Brightness.dark),
-            debugShowCheckedModeBanner: false,
-            home: Wrapper(),
-          ),
-        ),
-      ),
+          providers: [
+            BlocProvider(create: (_) => PageBloc()),
+            BlocProvider(create: (_) => UserBloc()),
+            BlocProvider(create: (_) => ThemeBloc()),
+            BlocProvider(
+              create: (_) => MovieBloc()..add(FetchMovie()),
+            ),
+            BlocProvider(create: (_) => TicketBloc())
+          ],
+          child: BlocBuilder<ThemeBloc, ThemeState>(
+              builder: (_, themeState) => MaterialApp(
+                  theme: themeState.themeData,
+                  debugShowCheckedModeBanner: false,
+                  home: Wrapper()))),
     );
   }
 }

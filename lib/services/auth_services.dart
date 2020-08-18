@@ -16,7 +16,7 @@ class AuthServices {
 
       return SignInSignUpResult(user: user);
     } catch (e) {
-      return SignInSignUpResult(messeage: e.toString().split(',')[1]);
+      return SignInSignUpResult(messeage: e.toString().split(',')[1].trim());
     }
   }
 
@@ -27,7 +27,7 @@ class AuthServices {
 
       return SignInSignUpResult(user: user);
     } catch (e) {
-      return SignInSignUpResult(messeage: e.toString().split(',')[1]);
+      return SignInSignUpResult(messeage: e.toString().split(',')[1].trim());
     }
   }
 

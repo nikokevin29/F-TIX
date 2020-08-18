@@ -8,7 +8,8 @@ class TicketDetailPage extends StatelessWidget {
   Widget build(BuildContext context) {
     return WillPopScope(
         onWillPop: () async {
-          context.bloc<PageBloc>().add(GoToMainPage());
+          context.bloc<PageBloc>().add(
+              GoToMainPage(bottomNavBarIndex: 1, isExpired: ticket.time.isBefore(DateTime.now())));
           return;
         },
         child: Scaffold(
@@ -97,12 +98,18 @@ class TicketDetailPage extends StatelessWidget {
                                 SizedBox(
                                   height: 10,
                                 ),
-                                Text(
-                                  ticket.movieDetail.genresAndLanguage,
-                                  style: greyTextFont.copyWith(
-                                      fontSize: 12,
-                                      fontWeight: FontWeight.w400,
-                                      color: Colors.white),
+                                SizedBox(
+                                  width:
+                                      MediaQuery.of(context).size.width - 2 * defaultMargin - 110,
+                                  child: Text(
+                                    ticket.movieDetail.genresAndLanguage,
+                                    style: greyTextFont.copyWith(
+                                        fontSize: 12,
+                                        fontWeight: FontWeight.w400,
+                                        color: Colors.white),
+                                    overflow: TextOverflow.clip,
+                                    maxLines: 2,
+                                  ),
                                 ),
                                 SizedBox(
                                   height: 5,
@@ -165,11 +172,23 @@ class TicketDetailPage extends StatelessWidget {
                                               color: Hexcolor("#89631A"),
                                               fontSize: 16,
                                               fontWeight: FontWeight.w600)),
-                                      Text(ticket.theater.name,
+                                      SizedBox(
+                                        width: 20,
+                                      ),
+                                      SizedBox(
+                                        width: MediaQuery.of(context).size.width -
+                                            2 * defaultMargin -
+                                            133,
+                                        child: Text(
+                                          ticket.theater.name,
                                           style: blackTextFont.copyWith(
                                               color: Hexcolor("#89631A"),
                                               fontSize: 16,
-                                              fontWeight: FontWeight.w600)),
+                                              fontWeight: FontWeight.w600),
+                                          overflow: TextOverflow.clip,
+                                          maxLines: 1,
+                                        ),
+                                      ),
                                     ],
                                   ),
                                 ),

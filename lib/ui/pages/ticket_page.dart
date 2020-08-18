@@ -1,12 +1,20 @@
 part of 'pages.dart';
 
 class TicketPage extends StatefulWidget {
+  final bool isExpiredTicket;
+  TicketPage({this.isExpiredTicket = false});
   @override
   _TicketPageState createState() => _TicketPageState();
 }
 
 class _TicketPageState extends State<TicketPage> {
-  bool isExpiredTickets = false;
+  bool isExpiredTickets;
+  @override
+  void initState() {
+    super.initState();
+    isExpiredTickets = widget.isExpiredTicket;
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
