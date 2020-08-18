@@ -55,8 +55,7 @@ class MoviePage extends StatelessWidget {
                       ),
                       SizedBox(
                         width: 15,
-                      ), // padding gam
-                      r ke Column Nama,Balance
+                      ), // padding gambar ke Column Nama,Balance
                       Column(
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: <Widget>[
@@ -189,4 +188,7 @@ class MoviePage extends StatelessWidget {
         SizedBox(
           height: 80,
         )
-    
+      ],
+    );
+  }
+}
