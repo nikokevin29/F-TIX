@@ -3,16 +3,14 @@ part of 'services.dart';
 class AuthServices {
   static FirebaseAuth _auth = FirebaseAuth.instance;
 
-  static Future signUp(String email, String password, String name,
-      List<String> selectedGenres, String selectedLanguage) async {
+  static Future signUp(String email, String password, String name, List<String> selectedGenres,
+      String selectedLanguage) async {
     try {
-      AuthResult result = await _auth.createUserWithEmailAndPassword(
-          email: email, password: password);
+      AuthResult result =
+          await _auth.createUserWithEmailAndPassword(email: email, password: password);
 
       User user = result.user.convertToUser(
-          name: name,
-          selectedGenres: selectedGenres,
-          selectedLanguage: selectedLanguage);
+          name: name, selectedGenres: selectedGenres, selectedLanguage: selectedLanguage);
 
       await UserServices.updateUser(user);
 
@@ -22,11 +20,9 @@ class AuthServices {
     }
   }
 
-  static Future<SignInSignUpResult> signIn(
-      String email, String password) async {
+  static Future<SignInSignUpResult> signIn(String email, String password) async {
     try {
-      AuthResult result = await _auth.signInWithEmailAndPassword(
-          email: email, password: password);
+      AuthResult result = await _auth.signInWithEmailAndPassword(email: email, password: password);
       User user = await result.user.fromFireStore();
 
       return SignInSignUpResult(user: user);
@@ -37,6 +33,10 @@ class AuthServices {
 
   static Future<void> signOut() async {
     await _auth.signOut();
+  }
+
+  static Future<void> resetPassword(String email) async {
+    await _auth.sendPasswordResetEmail(email: email);
   }
 
   static Stream<FirebaseUser> get userStream => _auth.onAuthStateChanged;

@@ -32,15 +32,13 @@ class _MainPageState extends State<MainPage> {
           PageView(
             controller: pageController,
             onPageChanged: (index) {
-              setState(() { 
+              setState(() {
                 bottomNavBarIndex = index;
               });
             },
             children: <Widget>[
               MoviePage(),
-              Center(
-                child: Text("My Tickets"),
-              )
+              TicketPage(),
             ],
           ),
           createCustomBottomNavBar(),
@@ -62,8 +60,7 @@ class _MainPageState extends State<MainPage> {
                     ),
                   ),
                   onPressed: () {
-                    context.bloc<UserBloc>().add(SignOut());
-                    AuthServices.signOut();
+                    context.bloc<PageBloc>().add(GoToTopUpPage(GoToMainPage()));
                   }),
             ),
           )
@@ -80,9 +77,8 @@ class _MainPageState extends State<MainPage> {
             height: 70,
             decoration: BoxDecoration(
                 color: Colors.white,
-                borderRadius: BorderRadius.only(
-                    topLeft: Radius.circular(20),
-                    topRight: Radius.circular(20))),
+                borderRadius:
+                    BorderRadius.only(topLeft: Radius.circular(20), topRight: Radius.circular(20))),
             child: BottomNavigationBar(
                 elevation: 0,
                 backgroundColor: Colors.transparent,
@@ -98,8 +94,7 @@ class _MainPageState extends State<MainPage> {
                 items: [
                   BottomNavigationBarItem(
                       title: Text("New Movies",
-                          style: GoogleFonts.raleway(
-                              fontSize: 13, fontWeight: FontWeight.w600)),
+                          style: GoogleFonts.raleway(fontSize: 13, fontWeight: FontWeight.w600)),
                       icon: Container(
                         margin: EdgeInsets.only(bottom: 6),
                         height: 20,
@@ -109,8 +104,7 @@ class _MainPageState extends State<MainPage> {
                       )),
                   BottomNavigationBarItem(
                       title: Text("My Tickets",
-                          style: GoogleFonts.raleway(
-                              fontSize: 13, fontWeight: FontWeight.w600)),
+                          style: GoogleFonts.raleway(fontSize: 13, fontWeight: FontWeight.w600)),
                       icon: Container(
                         margin: EdgeInsets.only(bottom: 6),
                         height: 20,

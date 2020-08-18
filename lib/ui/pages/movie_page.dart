@@ -22,15 +22,16 @@ class MoviePage extends StatelessWidget {
                     });
                   }
                   return Row(
-                    children: <Widget>[
-                      Container(
+                    children: [
+                      GestureDetector(
+                        onTap: () {
+                          context.bloc<PageBloc>().add(GoToProfilePage());
+                        },
+                        child: Container(
                           padding: EdgeInsets.all(5),
                           decoration: BoxDecoration(
                               shape: BoxShape.circle,
-                              border: Border.all(
-                                color: Color(0xFF5F558B),
-                                width: 1,
-                              )),
+                              border: Border.all(color: Color(0xFF5F558B), width: 1)),
                           child: Stack(
                             children: <Widget>[
                               SpinKitFadingCircle(
@@ -47,12 +48,15 @@ class MoviePage extends StatelessWidget {
                                             ? AssetImage("assets/user_pic.png")
                                             : NetworkImage(userState.user.profilePicture)),
                                         fit: BoxFit.cover)),
-                              ),
+                              )
                             ],
-                          )),
+                          ),
+                        ),
+                      ),
                       SizedBox(
-                        width: 5,
-                      ), // padding gambar ke Column Nama,Balance
+                        width: 15,
+                      ), // padding gam
+                      r ke Column Nama,Balance
                       Column(
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: <Widget>[
@@ -185,7 +189,4 @@ class MoviePage extends StatelessWidget {
         SizedBox(
           height: 80,
         )
-      ],
-    );
-  }
-}
+    
